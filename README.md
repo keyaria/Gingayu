@@ -12,12 +12,31 @@
 
 1.  **Create a basic layout for Front Page.**  :heavy_check_mark:
 
-2.  **Make Wordpress Menu and posts and add queries**
+2.  **Make Wordpress Menu and posts and add queries** (started)
 
 3.  **Implement main page design**
+
+5. **Add internalization**
 
 4.  **Add Blog Posts to wordpress**
 
 5. **Create About Me page**
 
-6. **Create Product Page** (started)
+6. **Create Product Page** :heavy_check_mark:
+
+7. **Add Functionality to Product page**
+
+8. **Create Product Page** :heavy_check_mark:
+
+9. **Organize and label all Photography**
+
+10. **Add Shop Page** (possibly put under about????)
+
+
+#  2nd MileStone
+
+1. **Add multiple image viewing for product**
+
+2. **Add Transitions and animations**
+
+3. **Enable Cart Funtion**
