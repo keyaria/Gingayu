@@ -5,7 +5,7 @@ import Image from "gatsby-image"
 import { Flex, Box , Text, Heading, Button, SimpleGrid, Stack, Input, InputGroup, InputRightElement, InputLeftElement, useNumberInput} from "@chakra-ui/react"
 
 //import SEO from "../components/seo"
-import AddToCartButton from "../components/addToCart"
+import AddToCartButton from "../components/addToButton"
 
 export const query = graphql`
   query($id: String!) {

@@ -67,13 +67,24 @@ const docLink = {
 }
 
 const HeroBox = styled(Center)`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${props => props.image}');
   background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 flex-direction: column;
 
 `;
+
+const DiagonalFlex = styled(Flex)`
+
+position: relative;
+background: purple;
+  clip-path: polygon(0 0%, 100% 29%, 100% 100%, 0 100%);
+
+  padding: 10rem 20%;
+
+`;
+
+//background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${props => props.image}');
 
 // data
 
@@ -86,21 +97,36 @@ flex-direction: column;
 // }
 // markup
 const IndexPage = () => {
-  const {wpPage} = useStaticQuery(
-    graphql`
-    query{
-      wpPage(slug: {eq: "home"}) {
-  id
-  featuredImage {
-    node {
-      caption
-      sourceUrl
+//   const {data} = useStaticQuery(
+//     graphql`
+//     query{
+//       data(slug: {eq: "home"}) {
+//   id
+//   featuredImage {
+//     node {
+//       caption
+//       sourceUrl
+//     }
+//   }
+// }
+//     }
+//     `
+//   );
+//
+const {wpPage} = useStaticQuery(graphql`
+  {
+    wpPage(slug: {eq: "home"}) {
+      id
+      isFrontPage
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      title
     }
   }
-}
-    }
-    `
-  );
+`)
   const property = {
   imageUrl: "https://bit.ly/2Z4KKcF",
   imageAlt: "Rear view of modern home with pool",
@@ -126,9 +152,9 @@ const IndexPage = () => {
   console.log(wpPage)
   return (
 
-<Layout>
-<Flex bg='gray.100' h="100%" direction="column">
-  <HeroBox  w="100%" h="95vh" image={wpPage.featuredImage.node.sourceUrl} color="white">
+<Layout isHome={true}>
+<Flex  h="100%" direction="column">
+  <HeroBox  w="100%" h="95vh" image={wpPage.featuredImage.node.sourceUrl} color="white" bg="gray.300">
   <Center flexDir="column" border="solid 2px" borderColor="white" p={4} borderRadius="md">
     <Heading as="h1" size="4xl" pb={4} fontSize="8rem" fontWeight="medium">銀河湯</Heading>
     <Text fontSize="2xl">明日への夢と希望のために、銀河釉と創造力の冒険</Text>
@@ -156,8 +182,8 @@ const IndexPage = () => {
     </Text>
   </Center>
 </GridItem>
-<GridItem colSpan={3} rowSpan={2} bg="gray.400" css={{backgroundImage: `url('${wpPage.featuredImage.node.sourceUrl}')`}}>
-
+<GridItem colSpan={3} rowSpan={2} bg="black.400" css={{backgroundImage: `url('https://via.placeholder.com/250}')`}}>
+  <img src="https://via.placeholder.com/350"/>
 </GridItem>
 <GridItem colSpan={3} rowSpan={2} bg="gray.400" css={{backgroundImage: `url('${wpPage.featuredImage.node.sourceUrl}')`}}>
 
@@ -217,6 +243,27 @@ const IndexPage = () => {
   </Box>
 </Flex>
 
+
+  <Flex h="90vh" >
+
+k
+
+
+  </Flex>
+
+    <DiagonalFlex h="150vh" >
+      <Box w="50%">
+
+      <Heading>
+        2020年玉峰窯年間スケジュール
+      </Heading>
+      </Box>
+
+
+      <Box bg="green.200" w="50%">
+      lwjne
+      </Box>
+    </DiagonalFlex>
 
 {/*For this i will try no picture but instead a sticky heading a scroll to see times see reference pic*/}
 <Flex  h="700px"  direction="column" p={4}>

@@ -119,7 +119,6 @@ query PREVIEW_QUERY($id: ID!) {
         pageType
         raw
       }
-      schemaDetails
       title
       twitterDescription
       twitterImage {

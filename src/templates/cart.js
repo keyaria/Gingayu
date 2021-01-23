@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
-import CartItem from "../components/cartItem"
+//import CartItem from "../components/cartItem"
 //import SEO from "../components/seo"
 //import FormatedPrice from "../components/formatedPrice"
-
+import AddToCartButton from '../components/addToButton'
 const Cart = () => {
     let [cartItems, setCartItems] = useState([])
 
@@ -22,12 +22,13 @@ const Cart = () => {
         localStorage.setItem("cart", JSON.stringify(updatedCartItems))
         setCartItems(updatedCartItems)
     }
+    //<SEO title="Cart" />
 
     let total = 0
     return (
         <Layout>
-            <SEO title="Cart" />
-            <h1>Cart</h1>
+            <h1 css={{marginTop: '100px'}}> Cart</h1>
+
             <table className="woocommerce-cart__wrapper">
                 <thead>
                     <tr>
@@ -39,10 +40,13 @@ const Cart = () => {
                     </tr>
                 </thead>
                 <tbody>
+                {console.log(cartItems)}
                     {cartItems.map(item => {
                         total += Number.parseInt(item.price.replace("$", "")) * item.qty
                         return (
-                            <CartItem key={item.id} {...item} removeItem={removeItemFromCart} />
+                            <p key={item.id} {...item} removeItem={removeItemFromCart} >
+                              {item.name}
+                            </p>
                         )
                     })}
                     <tr>

@@ -1,6 +1,8 @@
 const productTemplate = require.resolve("../src/templates/product.js");
 const archiveTemplate = require.resolve("../src/templates/archive.js");
 const cartTemplate = require.resolve("../src/templates/cart.js");
+const aboutTemplate = require.resolve("../src/templates/about.js");
+
 const chunk = require("lodash/chunk");
 
 
@@ -96,7 +98,7 @@ module.exports = async ({ actions, graphql, basePath}) => {
 
 
   actions.createPage({
-    path: basePath + 'about',
+    path: basePath + 'profile',
     component: aboutTemplate
   })
 }

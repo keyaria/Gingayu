@@ -120,7 +120,6 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           pageType
           raw
         }
-        schemaDetails
         title
         twitterDescription
         twitterImage {

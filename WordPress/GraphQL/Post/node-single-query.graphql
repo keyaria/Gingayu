@@ -7,13 +7,11 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     }
     authorDatabaseId
     authorId
-    bodyClasses
     categories(first: 100) {
       nodes {
         id
       }
     }
-    coAuthors
     commentCount
     commentStatus
     comments(first: 100) {
@@ -90,7 +88,6 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
         pageType
         raw
       }
-      schemaDetails
       title
       twitterDescription
       twitterImage {

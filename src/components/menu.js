@@ -1,7 +1,11 @@
 import * as React from "react"
 import { Flex, Spacer, Box, Button, Heading, Text, HStack } from "@chakra-ui/react"
+// mport Image from "gatsby-image";
+import { Image } from "@chakra-ui/react"
+
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from '@emotion/styled';
+import logo from '../images/logo_filled.png';
 
 const NavList = styled.ul`
 display: flex;
@@ -9,8 +13,8 @@ list-style-type: none;
 padding: 0 12px;
 
 `
-const Menu = () => {
-  const { wpMenu } = useStaticQuery(
+const Menu = ({isHome}) => {
+  const data = useStaticQuery(
     graphql`
     query {
     wpMenu {
@@ -30,16 +34,28 @@ const Menu = () => {
         }
       }
     }
+    fnG: file(relativePath: { eq: "gin.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 400, maxHeight: 250) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
+
 `
 );
 
+const wpMenu = data.wpMenu;
+console.log('sada', data)
 if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null;
 
 return(
-  <Flex boxShadow="sm" zIndex="2" pos="fixed" top="0"  w="100%" bgColor="white" color="black" px={8} py={8}>
+  <Flex boxShadow="sm" zIndex="2" pos="fixed" top="0"  w="100%" bgColor={!isHome ? 'white': ''} color={!isHome ? 'black': 'white'} px={8} py={2}>
 <Box >
-  <Heading size="md">GINGAYU</Heading>
+
+  <Image src={logo}  boxSize="70px"/>
+  {/* <Image src={data.fnG.childImageSharp.fluid} /> */}
 </Box>
 <Spacer />
 <Box>

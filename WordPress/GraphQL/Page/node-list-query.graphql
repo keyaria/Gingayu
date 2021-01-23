@@ -14,7 +14,6 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
       }
       authorDatabaseId
       authorId
-      bodyClasses
       wpChildren: children(first: 100) {
         nodes {
           id
@@ -99,7 +98,6 @@ query NODE_LIST_QUERY($first: Int!, $after: String) {
           pageType
           raw
         }
-        schemaDetails
         title
         twitterDescription
         twitterImage {

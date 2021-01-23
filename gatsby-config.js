@@ -3,26 +3,49 @@ module.exports = {
     title: "Gingayu",
   },
   plugins: [
+    // {
+    //   resolve: "gatsby-source-graphql",
+    //   options: {
+    //     // Arbitrary name for the remote schema Query type
+    //     typeName: "WP",
+    //     // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+    //     fieldName: "wp",
+    //     // Url to query from
+    //     url: "https://gingayu.com/wp/graphql",
+    //   },
+    // },
     {
       resolve: "gatsby-source-wordpress-experimental",
       options: {
-        url: `http://gingayu2020.nikita.jp/graphql`,
+        concurrentRequests: 10,
+        url: "http://gingayu2020.nikita.jp/graphql",
         debug: {
           graphql: {
             showQueryVarsOnError: true,
   			    copyQueryOnError: true,
-            writeQueriesToDisk: false,
+            writeQueriesToDisk: true
           },
       },
+      develop: {
+  hardCacheMediaFiles: false,
+},
+type: {
+         Post: {
+           limit: 1,
+         },
+         Product: {
+           limit: 3,
+         }
     },
-    },
-    "gatsby-plugin-emotion",
+  },
+},
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "256781618",
       },
     },
+    "gatsby-plugin-emotion",
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
@@ -56,17 +79,17 @@ module.exports = {
   //   resolve: "gatsby-source-woocommerce",
   //   options: {
 	//    // Base URL of Wordpress site
-  //     api: 'http://gingayu2020.nikita.jp',
+  //     api: 'https://gingayu.com',
   //     // true if using https. false if nah.
   //     https: false,
   //     api_keys: {
-  //       consumer_key: 'ck_233aa39d02166addd9d72f7ef762f1ab823d4cea',
-  //       consumer_secret: 'cs_68c439bea00cd7e433ee3981be344ac223edcf4d',
+  //       consumer_key: '',
+  //       consumer_secret: '',
   //     },
   //     // Array of strings with fields you'd like to create nodes for...
   //     fields: ['products']
   //   }
-  // }
+  // },
   //   {
 	// 	resolve: "gatsby-woocommerce-theme",
 	// 	options: {

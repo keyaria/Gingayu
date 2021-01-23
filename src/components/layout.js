@@ -3,11 +3,12 @@ import { Flex }  from "@chakra-ui/react"
 import { ChakraProvider } from "@chakra-ui/react"
 import Menu from "./menu"
 
-const Layout = ({children}) => {
+const Layout = ({children, isHome}) => {
+  console.log('isHome', isHome)
 return(
   <ChakraProvider>
 
-<Menu />
+<Menu isHome={isHome}/>
 
 {children}
 <Flex bg='black' h="200px"  >

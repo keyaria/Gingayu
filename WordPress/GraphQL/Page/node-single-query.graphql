@@ -13,7 +13,6 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
     }
     authorDatabaseId
     authorId
-    bodyClasses
     wpChildren: children(first: 100) {
       nodes {
         id
@@ -98,7 +97,6 @@ query SINGLE_CONTENT_QUERY($id: ID!) {
         pageType
         raw
       }
-      schemaDetails
       title
       twitterDescription
       twitterImage {
