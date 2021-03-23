@@ -52,8 +52,9 @@ module.exports = async ({ actions, graphql, basePath}) => {
     `)
 
 
-    const products = result.data.allWpProduct.nodes;
-    //console.log('kig', products)
+
+    const products = (result.data.allWpProduct.nodes).filter(value => Object.keys(value).length !== 0);
+    console.log('kig', products.filter(value => Object.keys(value).length !== 0))
 
     products.forEach(product => {
       //console.log('e', product.slug, basePath)
@@ -68,6 +69,7 @@ module.exports = async ({ actions, graphql, basePath}) => {
 
     //paginantion
     const perPage = 6;
+    console.log('here', products)
     const listPages = chunk(products, perPage);
     const totalArchivePages = listPages.length;
 

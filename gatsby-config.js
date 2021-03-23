@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Gingayu",
+    siteUrl: "https://gingayu.com",
   },
   plugins: [
     // {

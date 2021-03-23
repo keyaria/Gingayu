@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Image from "gatsby-image"
@@ -7,41 +7,40 @@ import { Flex, Box , Text, Heading, Button, SimpleGrid, Stack, Input, InputGroup
 //import SEO from "../components/seo"
 import AddToCartButton from "../components/addToButton"
 
-export const query = graphql`
-  query($id: String!) {
-      wpProduct(id: { eq: $id }) {
-        ... on WpSimpleProduct {
-          id
-          name
-          description
-          image {
-            sourceUrl
-          }
-          attributes {
-            nodes {
-              name
-            }
-          }
-          price
-          onSale
-          slug
-          status
-          type
-          regularPrice
-          salePrice
-          image {
-            localFile{
-            childImageSharp {
-              fixed(width: 500) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-        }
-        }
-      }
-  }
-`
+//export const query = graphql`
+//   query($id: String!) {
+//       wpProduct(id: { eq: $id }) {
+//         ... on WpSimpleProduct {
+//           id
+//           name
+//           description
+//           image {
+//             sourceUrl
+//           }
+//           attributes {
+//             nodes {
+//               name
+//             }
+//           }
+//           price
+//           onSale
+//           slug
+//           status
+//           regularPrice
+//           salePrice
+//           image {
+//             localFile{
+//             childImageSharp {
+//               fixed(width: 500) {
+//                 ...GatsbyImageSharpFixed
+//               }
+//             }
+//           }
+//         }
+//         }
+//       }
+//   }
+// `
 
 const ProductDetail = ({ id, name, price, description }) => {
   const {
@@ -84,12 +83,15 @@ const ProductDetail = ({ id, name, price, description }) => {
 
 const Product = (data) => {
   console.log('sdff', data.data)
-  const product = data.data.wpProduct;
+  let product;
   console.log('werewr', product)
   //<SEO title={product.name} />
-
+  useEffect(() => {
+    product = dat.data.wpProduct
+  }, [])
   return (
     <Layout>
+    {product && (
       <SimpleGrid columns={2} px={6} gap="6">
       <Box className="woocommerce-product__wrapper" h="100%">
         <Image fixed={product.image.localFile.childImageSharp.fixed} style={{ width: 600, height: 600 }} />
@@ -109,6 +111,7 @@ const Product = (data) => {
       </div>
       </Stack>
       </SimpleGrid>
+    )}
     </Layout>
   )
 }
