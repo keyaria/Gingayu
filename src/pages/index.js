@@ -3,16 +3,22 @@ import { Flex, Spacer, Box, Button, Heading, Center, Container, Text, Grid, Grid
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image";
 import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/react'
+
 import Layout from '../components/layout'
 //import Product from "../components/product"
 //import UniversalLink from "./UniversalLink"
-
-
+import logo from '../images/L1280311.jpg';
+import cupStir from '../images/cup_stir.jpg';
+import cup from '../images/DSCF0273.jpg'
+import potBook from '../images/DSCF0089.jpg'
+import Card from '../components/card'
+import LeftCard from '../components/leftCard'
 // styles
 const pageStyles = {
   color: "#232129",
   padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "limelight",
 }
 const headingStyles = {
   marginTop: 0,
@@ -72,8 +78,29 @@ background-repeat: no-repeat;
 background-size: cover;
 flex-direction: column;
 
+
 `;
 
+const OriginBox = styled(Flex)`
+
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+line-height: 2;
+
+ :before & {
+  content: '';
+position: absolute;
+top: 0;
+left: 0;
+display: block;
+background: rgba(0, 0, 0, 0.5);
+width: 100%;
+height: 100%;
+}
+
+`;
 const DiagonalFlex = styled(Flex)`
 
 position: relative;
@@ -152,144 +179,102 @@ const {wpPage} = useStaticQuery(graphql`
   console.log(wpPage)
   return (
 
-<Layout isHome={true}>
-<Flex  h="100%" direction="column">
-  <HeroBox  w="100%" h="95vh" image={wpPage.featuredImage.node.sourceUrl} color="white" bg="gray.300">
-  <Center flexDir="column" border="solid 2px" borderColor="white" p={4} borderRadius="md">
+<Layout isHome={true} styles={pageStyles} css={pageStyles} >
+<Flex  h="100%" direction="column" fontFamily="Montserrat">
+  <HeroBox  w="100%" h="100vh" /* image={wpPage.featuredImage.node.sourceUrl} */ backgroundImage={`url('${cupStir}')`} color="white">
+  <Center flexDir="column" p={4} borderRadius="md">
     <Heading as="h1" size="4xl" pb={4} fontSize="8rem" fontWeight="medium">銀河湯</Heading>
     <Text fontSize="2xl">明日への夢と希望のために、銀河釉と創造力の冒険</Text>
   </Center>
   </HeroBox>
 
-<Grid
-  h="90vh"
-  templeteRows="repeat(3, 1fr)"
-  templateColumns={['repeat(1, 1fr)', 'repeat(11, 1fr)', 'repeat(11, 1fr)']}
-  gap={4}
->
-<GridItem rowSpan={3} colSpan={5} bg="gray.200" >
-<Container   h="90%" my={6} css={{backgroundImage: `url('${wpPage.featuredImage.node.sourceUrl}')`}}>
+<OriginBox w="100%" h="120vh" backgroundImage={`url('${cup}')`}>
 
-   </Container>
-</GridItem>
-<GridItem colSpan={6} >
-  <Center flexDir="column" bgColor="blue.200" w="100%" h="100%">
-    <Heading>
-      Artwork collect
-    </Heading>
-    <Text>
-      sdfesdwefefw
-    </Text>
-  </Center>
-</GridItem>
-<GridItem colSpan={3} rowSpan={2} bg="black.400" css={{backgroundImage: `url('https://via.placeholder.com/250}')`}}>
-  <img src="https://via.placeholder.com/350"/>
-</GridItem>
-<GridItem colSpan={3} rowSpan={2} bg="gray.400" css={{backgroundImage: `url('${wpPage.featuredImage.node.sourceUrl}')`}}>
 
-</GridItem>
-</Grid>
 
-<Flex px={4} direction="column">
-<Heading>
-  Updates
 
+<Center w="50%" h="100%" flexDirection="column" px="80px">
+
+<Box bg="rgba(0, 0, 0, 0.1)"  p="20px">
+<Heading  color="blue.800" size="2xl">
+  Origin
 </Heading>
 
-<Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-    <Image src={property.imageUrl} alt={property.imageAlt} />
+<Text py="10px">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id consectetur purus ut faucibus pulvinar elementum. Consectetur adipiscing elit pellentesque habitant morbi tristique. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Diam maecenas sed enim ut sem viverra. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Sit amet commodo nulla facilisi nullam vehicula. Vivamus at augue eget arcu dictum varius duis at consectetur. Pellentesque sit amet porttitor eget dolor morbi non arcu. Amet nisl purus in mollis nunc sed id semper risus. Tristique nulla aliquet enim tortor at auctor urna. Natoque penatibus et magnis dis.
+</Text>
 
-    <Box p="6" bgColor="white">
-      <Box d="flex" alignItems="baseline">
-        <Badge borderRadius="full" px="2" colorScheme="teal">
-          New
-        </Badge>
-        <Box
-          color="gray.500"
-          fontWeight="semibold"
-          letterSpacing="wide"
-          fontSize="xs"
-          textTransform="uppercase"
-          ml="2"
-        >
-          {property.beds} beds &bull; {property.baths} baths
-        </Box>
-      </Box>
+<Text>
+Pharetra convallis posuere morbi leo urna molestie at elementum eu. Quis vel eros donec ac odio tempor orci dapibus. Nec feugiat in fermentum posuere urna nec. Non nisi est sit amet. Ut etiam sit amet nisl purus in mollis nunc sed. Nec feugiat nisl pretium fusce. Nec ultrices dui sapien eget mi proin sed. Enim facilisis gravida neque convallis a cras. Sem integer vitae justo eget magna fermentum iaculis. Quis varius quam quisque id diam vel quam. Velit egestas dui id ornare. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque.
+</Text>
+</Box>
+</Center>
 
-      <Box
-        mt="1"
-        fontWeight="semibold"
-        as="h4"
-        lineHeight="tight"
-        isTruncated
-      >
-        {property.title}
-      </Box>
+</OriginBox>
 
-      <Box>
-        {property.formattedPrice}
-        <Box as="span" color="gray.600" fontSize="sm">
-          / wk
-        </Box>
-      </Box>
+<Flex h="120vh" pt="100px" >
+<Image w="50%" h="100%" bg="gray.200"  objectFit="cover" src={potBook} alt="Gingayu" zIndex="3">
+</Image>
 
-      <Box d="flex" mt="2" alignItems="center">
+<Center w="50%" h="100%" flexDirection="column" px="50px" lineHeight="2" pb="10px">
 
-        <Box as="span" ml="2" color="gray.600" fontSize="sm">
-          {property.reviewCount} reviews
-        </Box>
-      </Box>
-    </Box>
-  </Box>
+<Heading  color="blue.800" size="2xl">
+  The Process
+</Heading>
+
+<Text py="10px">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id consectetur purus ut faucibus pulvinar elementum. Consectetur adipiscing elit pellentesque habitant morbi tristique. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Diam maecenas sed enim ut sem viverra. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Sit amet commodo nulla facilisi nullam vehicula. Vivamus at augue eget arcu dictum varius duis at consectetur. Pellentesque sit amet porttitor eget dolor morbi non arcu. Amet nisl purus in mollis nunc sed id semper risus. Tristique nulla aliquet enim tortor at auctor urna. Natoque penatibus et magnis dis.
+</Text>
+
+<Text>
+Pharetra convallis posuere morbi leo urna molestie at elementum eu. Quis vel eros donec ac odio tempor orci dapibus. Nec feugiat in fermentum posuere urna nec. Non nisi est sit amet. Ut etiam sit amet nisl purus in mollis nunc sed. Nec feugiat nisl pretium fusce. Nec ultrices dui sapien eget mi proin sed. Enim facilisis gravida neque convallis a cras. Sem integer vitae justo eget magna fermentum iaculis. Quis varius quam quisque id diam vel quam. Velit egestas dui id ornare. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque.
+</Text>
+</Center>
 </Flex>
 
+<Box h="120vh" bg="#f3f2ff" position="relative">
+<Box bg="linear-gradient(to bottom left, rgba(255, 255, 255, 0) 50%, #f3f2ff 50.5%) no-repeat top left/100% 100%" h="200px"  w="100%" top="-200px" position="absolute" zIndex="2"/>
 
-  <Flex h="90vh" >
-
-k
-
-
-  </Flex>
-
-    <DiagonalFlex h="150vh" >
-      <Box w="50%">
-
-      <Heading>
-        2020年玉峰窯年間スケジュール
-      </Heading>
-      </Box>
-
-
-      <Box bg="green.200" w="50%">
-      lwjne
-      </Box>
-    </DiagonalFlex>
-
-{/*For this i will try no picture but instead a sticky heading a scroll to see times see reference pic*/}
-<Flex  h="700px"  direction="column" p={4}>
-  <Heading>
-    2020年玉峰窯年間スケジュール
+  <Center flexDirection="column" mt="100px">
+  <Heading  color="blue.800" size="2xl">
+    Galaxy Craft House
   </Heading>
+  <Heading  color="blue.800" size="sm" fontWeight="300">
+    The Future
+  </Heading>
+  </Center>
 
-  <Stack spacing={8} p={8}>
-    <Feature
-      title="6月10日〜16日"
-      desc="藤沢 さいか屋 彩の工芸展「ブルーの世界」"
-    />
-    <Feature
-      title="6月16日〜28日"
-      desc="広島 三越 アートサロン"
-    />
-    <Feature
-      title="6月16日〜28日"
-      desc="広島 三越 アートサロン"
-    />
-    <Feature
-      title="6月16日〜28日"
-      desc="広島 三越 アートサロン"
-    />
-  </Stack>
+</Box>
+
+<Center h="100%" w="100%" flexDirection="column" mb="30px">
+<Heading  color="blue.800" size="2xl">
+  Contact Us
+</Heading>
+<Flex>
+<Card/>
+<Card/>
 </Flex>
+</Center>
+
+<Center flexDirection="column" >
+<Heading  color="blue.800" size="2xl">
+  Posts
+</Heading>
+
+<Flex p="30px">
+<LeftCard />
+<LeftCard style={{marginLeft: "20px"}} />
+  <LeftCard />
+
+</Flex>
+
+<Text> Read More </Text>
+
+</Center>
+
+
+
+
 
 
 

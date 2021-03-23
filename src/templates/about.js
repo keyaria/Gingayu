@@ -4,13 +4,14 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 
 import { Flex, Spacer, Box, Button, Heading, Center, Container, Text, SimpleGrid, Image, Stack, Badge,StarIcon } from "@chakra-ui/react"
 import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
+  Tab,
+  Tabs,
+  TabList,
+  TabPanels,
+  TabPanel
 } from "@chakra-ui/react"
 import Layout from "../components/layout"
+import shavings from '../images/shaving.jpg'
 
 
 const About = () => {
@@ -31,39 +32,194 @@ console.log('qp',wpPage)
 
   return(
     <Layout>
+    <Center bg="pink.100" w="100%" h="70vh" backgroundImage={`url('${shavings}')`} objectFit="cover" backgroundRepeat="no-repeat" backgroundSize="cover">
+      <Heading color="white" size="2xl"> About </Heading>
+    </Center>
+    <Tabs isFitted variant="enclosed">
+  <TabList>
+    <Tab>TimeLine</Tab>
+    <Tab>About</Tab>
+    <Tab> Features of Galaxy Glaze</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Text>1952年
+
+佐賀県生まれ 慶応義塾大学文学部哲学科中退
+
+1981年
+
+日本現代工芸美術家協会九州会に参加し陶芸に志す
+
+1982年
+
+日本現代工芸美術展初出品にて入選
+　－ 日本美術展覧会（日展）初出品にて入選
+
+1992年
+
+北京中央工芸美術学院研究室収蔵
+　－ 杭州南宗官窯博物館収蔵
+
+1994年
+
+デンバー美術館収蔵
+
+1995年
+
+国際美術大賞イタリー展’95 国際美術奨励賞
+
+1997年
+
+日本スペイン文化交流巡回美術展
+　－ セビリア市文化教育功労賞
+
+1999年
+
+日蘭交流400周年記念「日本の美術展」
+　－ アートユニオンオランダ賞
+
+2000年
+
+ミレニアム記念芸術アカデミー・グローバル賞
+
+2001年
+
+A.M.S.Cスペイン芸術賞
+　－ 第５回モナコ日本文化フェスティバル
+　－ モナコ公国名誉賞
+
+2002年
+
+スペイン国立プラド美術館財団会員
+　－ アルバ・ガッタ・ローマ芸術家協会名誉会員
+
+2003年
+
+「フランス・パリ・美の革命展INルーブル」
+　－ グランプリ「プリ・デ・リオン」
+　－ 特別賞「トリコロール芸術平和賞」
+　－ ルーブル美術館に永久刻印
+
+
+第2回トルコ日本現代芸術世界展 2003
+　－ オスマン・トルコ芸術勲章
+
+フィレンツェ栄光のネオ・ルネサンス展
+　－ コスタンツァ・デ・メディチ芸術褒賞
+
+ヴァチカン聖なる創造展
+
+2004年
+
+「カンヌ国際芸術祭」
+　－ コートダジュール国際芸術賞
+
+オゾン夏の大茶会に於て、遠州茶道宗家十三世家元、不傳庵小堀宗実により銀河釉茶道具を家元好として紹介される
+
+2005年
+
+万博博覧会愛地球博の会場にて
+　－ 小堀宗実家元プラチナ茶室と共に銀河釉茶道具を紹介される
+
+新宿京王百貨店にて初個展
+
+AΩ選抜協議会によりAUL
+（世界に誇る、歴史に残すべき芸術家）に認定される
+
+アジアにおける日本美術展優秀賞受賞
+
+2006年
+
+北京国際芸術博覧会（組織委員会よりの招待出品）
+
+2007年
+
+モスクワ国際芸術博覧会
+（ロシア国立芸術アカデミー美術館
+　　ロシア国立芸術アカデミーよりの招待出品）
+
+
+2008年
+
+クイーンヴィクトリアギャラリー（ロンドン）にて海外初個展
+Heart Art BARCELONA～日西芸術交流祭～バルセロナ陶磁芸術財団賞受賞
+Bonhams（ロンドン）のオークションに初出品
+
+
+2010年
+
+タイ王室ソムサワリ王女芸術賜杯受賞
+
+日本ハンガリー芸術交流祭
+(仏ルーブル美術館長の推薦による出品）
+ハンガリー文化芸術名誉作家賞受賞
+
+福岡市美術館にて「中尾哲彰作陶展」開催
+
+中尾哲彰 作陶展
+2011年
+
+クリスティーズオークション
+「Japanese Art & Design Including Arts of the Samurai」に出品
+
+2012年
+
+Christie’s「The Japanese Aesthetic」に出品
+
+2013年
+
+Christie’s「ASOBI」に出品
+
+2016年
+
+NHK「佐賀やきもの巡り」で銀河釉の紹介番組が放送される</Text>
+    </TabPanel>
+    <TabPanel>
+      <p>インタビュー記事
+月刊とっとっと　2006年11月号　vol.28　P12〜P13より
+
+　優しい若葉をイメージさせる「春銀河」、 濃い夏の夜空に星をちりばめたような「夏銀河」、 秋の装いを感じる「秋銀河」、雪や霜の白や銀が織り成す「冬銀河」、 濃い緑色や銀、茶など多彩な色合いの「睦月銀河」。 ５つの色合いは、無数の星が輝く宇宙の広がりを連想させる。
+他ではまず見ることのない、この煌きこそが「銀河釉」（ぎんがゆう）の魅力だ。
+
+学者から陶芸家へ「私は、学者になりたかったんです。」
+　陶芸家・中尾哲彰さんの作品には、大学時代に哲学を学んだ影響で「芸術を通していかに人類にメッセージを託すか」というテーマがある。 　昭和27年、武雄市山内町に生まれた中尾さんは、哲学や社会学の学者を志した。「自分たちの年代は、学生運動が盛んな時代でした。当時、わたしは学者になりたいと思っていました。いざ、大学に通うと自分が描いていた大学や学者のイメージと現実の姿が違っていたんです。自分がやりたいものとのギャップを感じて悩んでいた頃、焼き物を作るおやじとか職人さんの無心に土と格闘する姿を見て、陶芸家をめざそうと決心しました。それから、大学を辞め家業の焼き物づくりを始めました。」 「現在でも、哲学や社会学は当時の大学の教授やゼミの仲間と続けています。」という風貌からは、焼き物職人というより大学教授のような印象がある。
+
+「天体に輝く銀河」のような作品をつくりたい
+　「天体に輝く銀河」のような作品を作りたい。そんな思いから、「銀河釉」は誕生した。「銀河釉」を開発したきっかけは22年前。網膜はく離という病気になったときのことです。
+何も見えずに病室のベッドで一年ほど過ごしました。精神的にも辛く、苦しかったですね。このまま焼き物を続けることができなくなるのでは、という不安もありました。そんなある日、心の中に『夜空の星。天体に輝く銀河』が浮かんできたんです。不思議なことに、その星に救われる思いがしました。それで、銀河のような作品で、自分と同じように辛い思いをしている人たちに元気を与えることができるのではないかと考えました。
+私はむしろその思いに救われたのです。
+
+銀河釉の誕生
+　「銀河釉」とは、釉薬のなかに含まれる様々な金属が1200度～1250度という高熱の窯の中で結晶化したもの。 耀変結晶釉（ようへんけっしょうゆう）で、中尾さん自ら「銀河釉」と名づけた。 　「網膜はく離の症状が少しずつ回復し、銀河釉の開発のために世界中の文献を読みました。そして、何毎回も釉薬の調合を行ない、データーをとり研究を重ねました。それは、もう化学実験ですね。釉薬の研究には5年。商品化できるようになって15年ほどになります。窯の温度も重要で、自分の思い通りの色を出すのは難しいですね。」粘り強い研究から生み出された「銀河釉」には、ただただ驚嘆するしかない。 　「銀河釉は宝石と同じなんです。たとえばルビーの赤とエメラルドのグリーンは色が違いますよね。金属分子の結合状態が違うんです。結合のさせ方で色が違ってきます。そのために、窯もそれぞれに必要になるんです。」 　玉峰窯には、5基の窯があり色ごとに稼動させているというのもうなずける。 　中尾さんは、「私のなかには、芸術家と科学者の両方の姿がある。」という。窯は、不確定的要素が多い。そのため、思い通りの色を出すのは難しい。しかし、そこには妥協はない。それすらも「コントロールしたい」と科学者の顔も覗かせる。 　美しく結晶化した作品は、品格があり宝石のようだ。しかし、その美しさには科学的な知識だけでなく、自然の変化を読み取る技も必要とされる。納得できる作品づくりに格闘する日々はこれからも続く。
+
+人類史に残るメッセージを伝えたい
+　日本画家・千住博氏のインタビューのなかで「ニューヨーク在住の芸術家は絶望の淵にある」という話がありました。 千住氏は、「9・11同時多発テロ以降のニューヨークにおいて、芸術家はテロを起こした側、テロを受けた側の人々に、人間としての思いやりや癒しを伝えなければならないという使命感がない」というのです。「テロ後の傷ついた人々の心を癒し、勇気を与えることができたのは、20世紀前半の例えばセザンヌやガウディらの作品であり、そしてまた歴史に残る芸術。つまり、芸術とは国境、宗教、思想の壁を越えて、人に勇気や希望を与えたり、傷ついた心を癒したりするメッセージがある』という内容でした。私も同感です。そういう意味でも、『愛と自由』への思いを銀河釉に込めてメッセージを伝える意味は大きいと思います。」　 　そう熱く語る中尾さんは、「焼き物という芸術においても、他の人にできなかった新しい技法の意味は大きいと思う。人類史に残るメッセージを伝えることが、自分の姿だと思っています。」と続けた。
+
+世界を目指して…
+　「美」は国境を越える　中尾さんのプロフィールをみると、海外での受賞歴に舌を巻く。
+　中国、イタリア、スペイン、フランスとずらりと受賞歴が並ぶ。　海外へ目を向けたのは、10数年前。そのきっかけとなったのは、中国の北京芸大の張教授との出会いがあった。「教授は私の作品を高く評価されました。しかし、その頃は国内の公募展でもうまくいかない。作品を売ろうと思っても、売れなかったんです。私は、教授にそのことを話しました。教授は、『日本はまだまだ文化の厚みがない。芸術先進国のヨーロッパに出品しなさい。世界を目指して頑張れば、きっと世界のトップクラスに入るだろう』という助言をされました。」 　中尾さんは、その言葉に背中を押され、ヨーロッパを中心に公募展に出品。2003年には、「フランス・パリ・美の革命展ＩNルーブル」の陶芸部門でグランプリにあたるプリ・デ・リオン（ライオンの門賞）と同時に平和のメッセージが高いとして、トリコロール芸術平和賞に輝いた。「『愛と自由』というメッセージが国境を越えて伝わり、これまで取り組んできたことが間違ってなかったと確信できました。」とそのときの喜びを語る。
+
+茶道家元との出会い
+　「銀河釉」の茶道具を手に取った人は、まず驚くだろう。とにかく軽いからだ。中尾さんは、「水指などは、水を入れて使うもの。水が入ったときの重量を考え、人が持つことを前提につくっています。」と、焼き物としての美しさだけではなく、道具として使い手に対する心配りにも研ぎ澄まされた美学がある。「茶道という伝統の世界において、新しい風を吹かせたかったんです。」中尾さんは、「茶道とは、『一期一会』。美しいものを、美しいと感じる心は、芸術も茶道も同じだ。と考えている。 　遠州流の茶道家元と出会ったのは、茶道具づくりに試行錯誤をしていた頃。「5年前、ある方の紹介で遠州流の家元とお会いする機会がありました。ご紹介いただいた方からは、『家元は人間性と焼き物の両方をみられるので、認められなければお茶道具は諦めろ』と言われました。それから、家元にいろいろご指導いただいています。」 　現在では、遠州流の茶会をはじめ、2005年「愛・地球博」会場の「プラチナの茶室で銀河釉が使われるなど話題となった。家元からは、「新しいものは時間が経たないと評価が出ないと思うが、頑張れば100年後、200年後、歴史に残るものができるから」と激励され、今後も茶道具作りにも力を注ぎたいと意欲的だ。
+
+</p>
+    </TabPanel>
+    <TabPanel>
+    Galactic glaze pottery looks like a myriad of stars shining in a complex color change, which is a shining metal crystal. Various metal elements contained in the glaze are fired at a high temperature of 1200 to 1250 degrees and crystallize in the kiln. In order to beautifully fold out the crystals, not only scientific knowledge but also the skill of reading and adjusting the changes in nature is required, but the artist himself is struggling every day with the difficulty. However, the beautifully crystallized galaxy glaze has a dignity superior to that of gemstones. Due to the nature of the kiln-transformed crystal glaze, there is no one in the world with exactly the same color.
+
+
+
+Also, since these crystals are like those born from a kiln fired at a high temperature, they do not change or peel off over time. In the case of tableware, it can withstand use in a microwave oven.
+
+The brilliance of this galaxy glaze is eternal like a starry sky.
+
+    </TabPanel>
+  </TabPanels>
+</Tabs>
       <Container css={{paddingTop: '100px'}}>
 <Heading> About </Heading>
-      <Accordion>
-  <AccordionItem>
-    <AccordionButton>
-      <Box flex="1" textAlign="left">
-        Section 1 title
-      </Box>
-      <AccordionIcon />
-    </AccordionButton>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
 
-  <AccordionItem>
-    <AccordionButton>
-      <Box flex="1" textAlign="left">
-        Section 2 title
-      </Box>
-      <AccordionIcon />
-    </AccordionButton>
-    <AccordionPanel pb={4}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </AccordionPanel>
-  </AccordionItem>
-</Accordion>
       </Container>
 
 

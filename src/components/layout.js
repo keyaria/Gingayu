@@ -11,7 +11,7 @@ return(
 <Menu isHome={isHome}/>
 
 {children}
-<Flex bg='black' h="200px"  >
+<Flex bg="#f3f2ff" h="200px"  >
  footer
 </Flex>
     </ChakraProvider>

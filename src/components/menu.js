@@ -51,14 +51,14 @@ console.log('sada', data)
 if (!wpMenu?.menuItems?.nodes || wpMenu.menuItems.nodes === 0) return null;
 
 return(
-  <Flex boxShadow="sm" zIndex="2" pos="fixed" top="0"  w="100%" bgColor={!isHome ? 'white': ''} color={!isHome ? 'black': 'white'} px={8} py={2}>
+  <Flex boxShadow="sm" zIndex="2"  top="0"  w="100%" bgColor={!isHome ? 'white': ''} color={!isHome ? 'black': 'black'} px={8} py={2}>
 <Box >
 
   <Image src={logo}  boxSize="70px"/>
   {/* <Image src={data.fnG.childImageSharp.fluid} /> */}
 </Box>
 <Spacer />
-<Box>
+<Box m="auto 0">
 
   <NavList>
     {wpMenu.menuItems.nodes.map((menuItem, i) => {
