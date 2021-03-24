@@ -14,7 +14,7 @@ import Layout from "../components/layout"
 import shavings from '../images/shaving.jpg'
 
 
-const About = () => {
+const Profile = () => {
 
   const {wpPage} = useStaticQuery(graphql`
     {
@@ -231,4 +231,4 @@ The brilliance of this galaxy glaze is eternal like a starry sky.
 
 }
 
-export default About;
+export default Profile;

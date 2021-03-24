@@ -2,6 +2,8 @@ const productTemplate = require.resolve("../src/templates/product.js");
 const archiveTemplate = require.resolve("../src/templates/archive.js");
 const cartTemplate = require.resolve("../src/templates/cart.js");
 const aboutTemplate = require.resolve("../src/templates/about.js");
+const postTemplate = require.resolve("../src/templates/post.js");
+const blogTemplate = require.resolve("../src/pages/posts.js");
 
 const chunk = require("lodash/chunk");
 
@@ -100,7 +102,67 @@ module.exports = async ({ actions, graphql, basePath}) => {
 
 
   actions.createPage({
-    path: basePath + 'profile',
+    path: basePath + 'about',
     component: aboutTemplate
+  })
+
+
+
+
+  const postresult = await graphql(`
+    {
+      allWpPost {
+     edges {
+       node {
+         id
+         date
+       }
+     }
+     nodes {
+       id
+       date
+       title
+       content
+     }
+   }
+ }
+  `)
+
+
+  const posts = postresult.data.allWpPost.nodes;
+  //console.log('kig', products)
+
+  posts.forEach(post => {
+    //console.log('e', product.slug, basePath)
+    actions.createPage({
+      path: basePath + post.id,
+      component: postTemplate,
+      context: {
+        id: post.id,
+      },
+    })
+  })
+
+  //paginantion
+  const listPage1s = chunk(posts, perPage);
+  const totalArchivePages3 = listPages.length;
+
+
+  //console.log('total', listPages)
+  listPage1s.forEach((archivePosts, index) => {
+    const page = index + 1;
+    console.log('archive', archivePosts)
+    actions.createPage({
+      path: page === 1 ? basePath + 'shop' : basePath + page,
+      component: blogTemplate,
+    context: {
+      products: archivePosts,
+      pageInfo: {
+        basePath: basePath,
+        previousPage: page - 1,
+        nextPage: page == totalArchivePages3 ? 0 : page + 1
+      }
+    },
+    })
   })
 }

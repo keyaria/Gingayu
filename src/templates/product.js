@@ -87,7 +87,7 @@ const Product = (data) => {
   console.log('werewr', product)
   //<SEO title={product.name} />
   useEffect(() => {
-    product = dat.data.wpProduct
+    product = data.data.wpProduct
   }, [])
   return (
     <Layout>

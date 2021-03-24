@@ -1,6 +1,7 @@
 import React from "react"
-import { Flex, LinkBox, Box, Heading, Text, Image, VStack } from "@chakra-ui/react"
+import { LinkBox, Box, Heading, Text, Image, VStack } from "@chakra-ui/react"
 
+import Layout from "../components/layout"
 
 
 
@@ -8,7 +9,10 @@ import { Flex, LinkBox, Box, Heading, Text, Image, VStack } from "@chakra-ui/rea
 
 const BlogPage = () => {
 
-
+  // const { basePath, previousPage, nextPage } = pageInfo;
+  //
+  // const previousPageLink = previousPage != '' ? basePath + (previousPage == 1 ? '/' : previousPage) : '';
+  // const nextPageLink = nextPage != 0 ? basePath + nextPage : '';
 const data = [
   {
     title: 'blech',
@@ -33,11 +37,11 @@ const data = [
 ]
 
 return(
+  <Layout>
 <VStack spacing={32}>
-
 {data.map((item) => (
-  <LinkBox display="flex" justifyContent="space-between" maxWidth="80vw" width="100%" href="#" role="group" >
-    <Box     _hover={{ boxShadow: ' 10px 5px 5px red' }}
+  <LinkBox display="flex" justifyContent="space-between" maxWidth="80vw" width="100%" href={ item.title} role="group" >
+    <Box _hover={{ boxShadow: ' 10px 5px 5px red' }}
     _groupHover={{ color: 'blue' }} >
       <Heading as="h1" size="3xl" _hover={{boxShadow: 'xs', color: 'blue.500'}}>  {item.title} </Heading>
       <Text> {item.date} </Text>
@@ -50,6 +54,7 @@ return(
 
 
 </VStack>
+</Layout>
 
 )
 }
